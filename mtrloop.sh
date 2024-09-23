@@ -17,7 +17,7 @@ p_pid=$$  # Stores the current process ID in the variable p_pid
 v_customer="google_dns"  # Defines the customer as "google_dns"
 v_target=8.8.8.8  # Sets the target (IP address) to 8.8.8.8
 v_interval=0.2  # Defines the interval between packets as 0.2 seconds
-v_packets=100  # Defines the number of packets as 100
+v_packets=3600  # Defines the number of packets as 100
 
 #############################################
 # -- definition --

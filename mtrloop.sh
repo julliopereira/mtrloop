@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
-# AUTHOR        : 
-# CONTACT       : 
+# AUTHOR        : Julio C. Pereira
+# CONTACT       : github.com/julliopereira
 # OBJECTIVE     : 
 # VERSION       : v0.1 20240922 Julio C. Pereira    Start         
 #
@@ -12,12 +12,6 @@ p_pid=$$  # Stores the current process ID in the variable p_pid
 
 #############################################
 # variables
-
-# --example--
-# v_customer="google_dns"
-# v_target=8.8.8.8
-# v_interval=0.3
-# v_packets=10
 
 # --manual definitions--
 v_customer="google_dns"  # Defines the customer as "google_dns"
@@ -57,9 +51,8 @@ f_date_clock() {
 
 f_mtr_run() {
     v_today=$(f_today)  # Gets the current date
-    v_end=$(f_clock)  # Gets the current time
     # Executes the mtr (My Traceroute) command with options and saves the log to a file
-    mtr -t -o "LSD NBAW" -n -c $v_packets -i $v_interval $v_target -C > $v_dir/${v_today}_${v_customer}_${v_start}_${v_end}.log
+    mtr -t -o "LSD NBAW" -n -c $v_packets -i $v_interval $v_target -C > $v_dir/${v_today}_${v_customer}_${v_start}.log
 }
 
 #############################################

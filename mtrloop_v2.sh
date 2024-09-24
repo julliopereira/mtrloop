@@ -2,7 +2,7 @@
 
 # AUTHOR        : Julio C. Pereira
 # CONTACT       : github.com/julliopereira
-# OBJECTIVE     : 
+# OBJECTIVE     : test with mtr without interruption 
 # VERSION       : v0.1 20240922 Julio C. Pereira    Start         
 #                 v1.0 20240922 Julio C. Pereira    Date and time added in front of mtr report
 
@@ -14,8 +14,8 @@ p_pid=$$  # Stores the current process ID in the variable p_pid
 # variables
 
 # --manual definitions--
-v_customer="google"  # Defines the customer as "google_dns"
-v_target=8.8.8.8 # Sets the target (IP address) to 8.8.8.8
+v_customer="japan.jp"  # Defines the customer as "google_dns"
+v_target=japan.jp # Sets the target (IP address) to 8.8.8.8
 v_interval=0.25  # Defines the interval between packets as 0.2 seconds
 v_packets=100  # Defines the number of packets as ...
 

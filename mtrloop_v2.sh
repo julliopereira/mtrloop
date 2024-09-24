@@ -4,7 +4,7 @@
 # CONTACT       : github.com/julliopereira
 # OBJECTIVE     : 
 # VERSION       : v0.1 20240922 Julio C. Pereira    Start         
-#
+#                 v1.0 20240922 Julio C. Pereira    Date and time added in front of mtr report
 
 #############################################
 #pid
@@ -14,8 +14,8 @@ p_pid=$$  # Stores the current process ID in the variable p_pid
 # variables
 
 # --manual definitions--
-v_customer="att_teleperf_alloha_500241310"  # Defines the customer as "google_dns"
-v_target=10.226.111.254  # Sets the target (IP address) to 8.8.8.8
+v_customer="google"  # Defines the customer as "google_dns"
+v_target=8.8.8.8 # Sets the target (IP address) to 8.8.8.8
 v_interval=0.25  # Defines the interval between packets as 0.2 seconds
 v_packets=100  # Defines the number of packets as ...
 
@@ -50,15 +50,16 @@ f_date_clock() {
 }
 
 f_date_clock_two() {
-    v_dclock=$(date +%Y%m%d_%H:%M:%S.%3N)  # Captures the current date and time in the format YYYYMMDD_HHMMSS
+    v_dclock=$(date +%Y%m%d_%H:%M:%S)  # Captures the current date and time in the format YYYYMMDD_HHMMSS
     echo "$v_dclock"  # Returns the date and time in the above format
 }
 
 f_mtr_run() {
     v_today=$(f_today)  # Gets the current date
     # Executes the mtr (My Traceroute) command with options and saves the log to a file
-    echo -e "=>\t$(f_date_clock_two)" > $v_dir/${v_today}_${v_customer}_${v_start}.log
+    v_now=$(f_date_clock_two)
     mtr -t -o "LSD NBAW" -n -c $v_packets -i $v_interval $v_target -r >> $v_dir/${v_today}_${v_customer}_${v_start}.log
+    sed -i "s/^/$v_now\t/g" $v_dir/${v_today}_${v_customer}_${v_start}.log
 }
 
 #############################################
